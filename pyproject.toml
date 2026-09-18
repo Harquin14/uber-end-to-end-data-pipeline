@@ -1,0 +1,20 @@
+[project]
+name = "uber-end-end-to-end-data-pipeline"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Harquin14", email = "skemist0@|gmail" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "dbt-core>=1.12.5",
+    "dbt-databricks>=1.10.9",
+]
+
+[project.scripts]
+uber-end-end-to-end-data-pipeline = "uber_end_end_to_end_data_pipeline:main"
+
+[build-system]
+requires = ["uv_build>=0.12.9,<0.13.0"]
+build-backend = "uv_build"

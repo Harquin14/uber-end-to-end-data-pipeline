@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: source_bronze
+    database: uber_dbt
+    schema: bronze
+    tables:
+      - name: trips
+
+  - name: source_silver
+    database: uber_dbt
+    schema: silver
+    tables:
+      - name: customers
+      - name: drivers
+      - name: locations
+      - name: payment
+      - name: trips
+      - name: vehicles
+      - name: payments
+
+  - name: source_gold
+    database: uber_dbt
+    schema: gold
+    tables:
+      - name: facttrips
+      - name: dimdrivers
+
+  
