@@ -12,12 +12,13 @@ Source files in Databricks Volumes
 								v
 Databricks ingestion and Bronze tables
 	- dynamic ingestion for source tables
-	- duplicate removal
-	- processing-date tracking
+	
 								|
 								v
 Silver tables
 	- table-specific transformations
+	- duplicate removal
+	- processing-date tracking
 	- incremental trip processing with dbt
 								|
 								v
@@ -44,8 +45,6 @@ The upstream Databricks ingestion and PySpark notebook work loads source data dy
 Source data is loaded dynamically into Databricks from the source catalog and Volume locations. The Bronze processing pattern is intended to be reusable across tables and includes:
 
 - Dynamic handling of multiple source tables
-- Duplicate removal through shared PySpark processing logic
-- Addition of a `processing_date` column for operational traceability
 - Persistence of raw or lightly standardized Delta data in the Bronze layer
 
 The source definitions currently used by dbt are in [harq_uber/models/source/source.yml](harq_uber/models/source/source.yml). They reference the `uber_dbt` catalog and the `bronze`, `silver`, and `gold` schemas.
@@ -54,6 +53,9 @@ The source definitions currently used by dbt are in [harq_uber/models/source/sou
 
 Silver models apply table-specific business transformations. The implemented dbt trip model is [harq_uber/models/silver/trips.sql](harq_uber/models/silver/trips.sql). It:
 
+
+- Duplicate removal through shared PySpark processing logic
+- Addition of a `processing_date` column for operational traceability
 - Reads from `uber_dbt.bronze.trips`
 - Selects the required trip columns
 - Uses `trip_id` as the incremental model key
