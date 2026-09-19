@@ -6,7 +6,7 @@ harq_uber:
       http_path: /sql/1.0/warehouses/39a3792d3997afa7
       schema: source
       threads: 1
-      token: token: "{{ env_var('DATABRICKS_TOKEN') }}"
+      token: "{{ env_var('DATABRICKS_TOKEN') }}"
       type: databricks
   target: dev
 
