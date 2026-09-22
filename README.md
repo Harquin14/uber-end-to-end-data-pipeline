@@ -2,6 +2,10 @@
 
 An end-to-end Uber data platform built around Databricks, PySpark, SQL, and dbt. The pipeline takes source data from Databricks Volumes through Bronze and Silver processing and publishes historized Gold dimensions, facts, and reporting outputs for analytics.
 
+<img width="1226" height="776" alt="Uber_highLevel" src="https://github.com/user-attachments/assets/c1863fbb-5294-41ae-bcf4-053cff3d666a" />
+
+
+
 ## Project Overview
 
 The project is designed around a medallion architecture:
